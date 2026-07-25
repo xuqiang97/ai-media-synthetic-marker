@@ -5,6 +5,7 @@ import importlib.util
 import json
 import sys
 import tempfile
+import tomllib
 import unittest
 import zipfile
 from pathlib import Path
@@ -89,6 +90,36 @@ class VersionMetadataTests(unittest.TestCase):
             )
         )
         self.assertEqual(raw_lock["version"], lock["version"])
+
+    def test_python_build_baseline_is_consistent(self) -> None:
+        pyproject = tomllib.loads(
+            (PROJECT_ROOT / "pyproject.toml").read_text(encoding="utf-8")
+        )
+        readme = (PROJECT_ROOT / "README.md").read_text(encoding="utf-8")
+        agents = (PROJECT_ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        contributing = (PROJECT_ROOT / "CONTRIBUTING.md").read_text(
+            encoding="utf-8"
+        )
+        notices = (PROJECT_ROOT / "THIRD_PARTY_NOTICES.md").read_text(
+            encoding="utf-8"
+        )
+        launcher = (PROJECT_ROOT / "开发运行.cmd").read_text(encoding="utf-8")
+        ci_workflow = (
+            PROJECT_ROOT / ".github" / "workflows" / "ci.yml"
+        ).read_text(encoding="utf-8")
+        release_workflow = (
+            PROJECT_ROOT / ".github" / "workflows" / "release.yml"
+        ).read_text(encoding="utf-8")
+
+        self.assertEqual((3, 14, 6), self.build_release.EXPECTED_PYTHON)
+        self.assertEqual("==3.14.6", pyproject["project"]["requires-python"])
+        self.assertIn("Python 3.14.6", readme)
+        self.assertIn("Python 3.14.6", agents)
+        self.assertIn("Python 3.14.6", contributing)
+        self.assertIn("CPython 3.14.6", notices)
+        self.assertIn("(3, 14, 6)", launcher)
+        self.assertIn('python-version: "3.14.6"', ci_workflow)
+        self.assertIn('python-version: "3.14.6"', release_workflow)
 
 
 class ReleaseStageHygieneTests(unittest.TestCase):

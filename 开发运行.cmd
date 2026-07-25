@@ -34,7 +34,7 @@ set "PYTHON314=%LocalAppData%\Programs\Python\Python314\pythonw.exe"
 set "PYTHON314_CONSOLE=%LocalAppData%\Programs\Python\Python314\python.exe"
 if not exist "%PYTHON314%" goto find_launcher
 if not exist "%PYTHON314_CONSOLE%" goto find_launcher
-"%PYTHON314_CONSOLE%" -c "import sys, tkinter; raise SystemExit(0 if sys.version_info[:2] == (3, 14) else 1)" >nul 2>&1
+"%PYTHON314_CONSOLE%" -c "import sys, tkinter; raise SystemExit(0 if sys.version_info[:3] == (3, 14, 6) else 1)" >nul 2>&1
 if not errorlevel 1 goto launch_python314
 
 :find_launcher
@@ -48,7 +48,7 @@ if not defined PY_LAUNCHER goto find_path_python
 :validate_launcher
 for %%I in ("%PY_LAUNCHER%") do set "PYW_PATH=%%~dpIpyw.exe"
 if not exist "%PYW_PATH%" goto find_path_python
-"%PY_LAUNCHER%" -3.14 -c "import tkinter" >nul 2>&1
+"%PY_LAUNCHER%" -3.14 -c "import sys, tkinter; raise SystemExit(0 if sys.version_info[:3] == (3, 14, 6) else 1)" >nul 2>&1
 if not errorlevel 1 goto launch_pyw
 
 :find_path_python
@@ -58,19 +58,19 @@ for /f "delims=" %%I in ('where python.exe 2^>nul') do if not defined PYTHON_PAT
 if not defined PYTHON_PATH goto launch_error
 for %%I in ("%PYTHON_PATH%") do set "PYTHONW_PATH=%%~dpIpythonw.exe"
 if not exist "%PYTHONW_PATH%" goto launch_error
-"%PYTHON_PATH%" -c "import sys, tkinter; raise SystemExit(0 if sys.version_info[:2] == (3, 14) else 1)" >nul 2>&1
+"%PYTHON_PATH%" -c "import sys, tkinter; raise SystemExit(0 if sys.version_info[:3] == (3, 14, 6) else 1)" >nul 2>&1
 if not errorlevel 1 goto launch_pythonw
 
 :launch_error
 echo.
-echo 启动失败：未找到可用的 Python 3.14 和 Tkinter。
+echo 启动失败：未找到可用的 Python 3.14.6 和 Tkinter。
 echo.
 echo 查找顺序：
-echo 1. 本机 Python 3.14 的 pythonw.exe
-echo 2. Python Launcher 的 pyw.exe -3.14
+echo 1. 本机 Python 3.14.6 的 pythonw.exe
+echo 2. Python Launcher 的 pyw.exe -3.14（必须解析到 3.14.6）
 echo 3. PATH 中同目录的 python.exe / pythonw.exe
 echo.
-echo 请先安装包含 Tkinter 的 Python 3.14。
+echo 请先安装包含 Tkinter 的 Python 3.14.6。
 echo 本启动器不会自动安装 Python 或其他依赖。
 echo.
 pause

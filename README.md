@@ -54,7 +54,7 @@ MP4 即使已经正确写入 XMP，Windows“属性 → 详细信息 → 标记�
 要求：
 
 - Windows x64
-- Python 3.14，包含 Tkinter
+- Python 3.14.6，包含 Tkinter
 - ExifTool 13.59
 
 首次准备 ExifTool：
@@ -95,7 +95,7 @@ py -3.14 -m unittest discover -s tests -v
 
 ## 构建便携 EXE 和 ZIP
 
-构建环境固定使用 Python 3.14.0 和 PyInstaller 6.21.0。构建脚本不会
+开发与构建环境固定使用 Python 3.14.6 和 PyInstaller 6.21.0。构建脚本不会
 擅自安装缺失的软件；若环境不完整，会停止并显示所需命令。
 
 准备构建依赖：

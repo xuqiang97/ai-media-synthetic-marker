@@ -23,7 +23,7 @@ official Windows package.
 - Strawberry Perl and bundled modules: see
   `exiftool/exiftool_files/Licenses_Strawberry_Perl.zip`
 
-## CPython 3.14
+## CPython 3.14.6
 
 - Copyright: Python Software Foundation and contributors
 - Website: https://www.python.org/

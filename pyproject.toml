@@ -3,7 +3,7 @@ name = "ai-media-synthetic-marker"
 version = "1.0.0"
 description = "Windows GUI for writing and strictly verifying contains-synthetic-performer in XMP dc:subject."
 readme = "README.md"
-requires-python = ">=3.14,<3.15"
+requires-python = "==3.14.6"
 license = { file = "LICENSE" }
 authors = [
     { name = "AI Media Synthetic Marker contributors" }

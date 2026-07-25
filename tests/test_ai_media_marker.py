@@ -497,6 +497,7 @@ class SelfTestDiagnosticsTests(unittest.TestCase):
 
             self.assertEqual(0, return_code)
             report = report_path.read_text(encoding="utf-8")
+            self.assertIn("Python=3.14.6", report)
             self.assertIn("Tcl=8.6.14", report)
             self.assertIn("ExifTool=13.59", report)
             self.assertIn("Result=ok", report)

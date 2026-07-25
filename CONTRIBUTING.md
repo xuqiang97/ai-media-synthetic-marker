@@ -5,6 +5,7 @@
 ## 开始之前
 
 - 目前仅支持 Windows x64。
+- 开发与正式构建统一使用 Python 3.14.6，并包含 Tkinter。
 - 业务源码只保留在 `src/ai_media_marker.py`。
 - 不要提交真实商品媒体、运行记录、`*_original` 或本地 ExifTool 文件。
 - ExifTool 的版本、下载地址和校验值统一由

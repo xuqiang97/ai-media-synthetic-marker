@@ -1181,6 +1181,11 @@ def run_self_test() -> int:
 
     details: list[str] = []
     try:
+        details.append(
+            "Python="
+            f"{sys.version_info.major}.{sys.version_info.minor}."
+            f"{sys.version_info.micro}"
+        )
         interpreter = tk.Tcl()
         tcl_version = interpreter.eval("info patchlevel")
         details.append(f"Tcl={tcl_version}")

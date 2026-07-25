@@ -69,7 +69,7 @@ XMP-dc:Subject
 
 ## 开发与验证
 
-项目要求 Python 3.14，并使用标准库 `unittest`：
+项目要求 Python 3.14.6，并使用标准库 `unittest`：
 
 ```powershell
 py -3.14 -m unittest discover -s tests -v
