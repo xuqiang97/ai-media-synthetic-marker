@@ -57,6 +57,9 @@ MP4 即使已经正确写入 XMP，Windows“属性 → 详细信息 → 标记�
 - Python 3.14.6，包含 Tkinter
 - ExifTool 13.59
 
+新电脑首次配置、精确依赖版本、环境验收和 GitHub 发布步骤见
+[BUILDING.md](BUILDING.md)。
+
 首次准备 ExifTool：
 
 ```powershell
@@ -125,6 +128,7 @@ dist/
 
 ```text
 src/ai_media_marker.py          唯一业务源码
+BUILDING.md                     新电脑配置、构建与发布清单
 scripts/fetch_exiftool.py       下载并校验固定版本 ExifTool
 scripts/build_release.py        测试、构建、组合和校验发布包
 packaging/marker_app.spec       PyInstaller 配置

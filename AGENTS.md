@@ -2,7 +2,8 @@
 
 本文面向在新电脑或新对话中接手本项目的人类维护者与 AI 编程助手。开始工作前，
 请完整阅读本文、[README.md](README.md) 和
-[CONTRIBUTING.md](CONTRIBUTING.md)，然后只读检查 Git 状态、最近提交和相关源码。
+[CONTRIBUTING.md](CONTRIBUTING.md)；涉及新电脑配置、构建或发布时，还必须阅读
+[BUILDING.md](BUILDING.md)。然后只读检查 Git 状态、最近提交和相关源码。
 
 如果需求仍处于交流或方案确认阶段，不要修改文件、安装依赖、构建、提交或发布。
 只有在范围明确并得到实施授权后，才进行与需求直接相关的改动。
