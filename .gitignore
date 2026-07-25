@@ -1,15 +1,35 @@
-# Python
+# Python bytecode and tool caches
 __pycache__/
-*.py[cod]
+*.py[codz]
+*$py.class
+.cache/
+.hypothesis/
+.mypy_cache/
+.nox/
+.pyre/
+.pytest_cache/
+.pytype/
+.ruff_cache/
+.tox/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Python environments and local packaging state
 .venv/
 venv/
-.coverage
-htmlcov/
-.pytest_cache/
+env/
+ENV/
+__pypackages__/
+.eggs/
+*.egg-info/
 
 # Build and release output
 /build/
 /dist/
+*.manifest
+*.spec
 *.toc
 *.log
 
@@ -23,7 +43,7 @@ htmlcov/
 /dev/运行记录/*
 !/dev/运行记录/.gitkeep
 
-# Existing private and legacy workspace content
+# Private and legacy workspace paths (keep blocked even when absent)
 /image/
 /video/
 /exiftool/
@@ -38,18 +58,30 @@ htmlcov/
 /tests/local-fixtures/
 
 # Privacy guard: media and runtime records are opt-in, never committed by accident
-*.jpg
-*.jpeg
-*.png
-*.mp4
-*.csv
-!docs/assets/**/*.png
+*.[jJ][pP][gG]
+*.[jJ][pP][eE][gG]
+*.[pP][nN][gG]
+*.[mM][pP]4
+*.[cC][sS][vV]
+!docs/assets/**/*.[pP][nN][gG]
 
-# Local configuration and editors
+# Local configuration
 .env
 .env.*
+!.env.example
+
+# Editors and operating-system files
 .vscode/
 .idea/
+*.swp
+*.swo
+*~
 .DS_Store
+._*
 Thumbs.db
-desktop.ini
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
